@@ -3,6 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
+import { students } from './data/students';
+import StudentDirectory from './components/StudentDirectory';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -119,4 +121,6 @@ function App() {
   )
 }
 
-export default App
+export default function App() {
+return <StudentDirectory students={students} />;
+}
