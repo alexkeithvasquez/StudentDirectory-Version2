@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './App.css';
 import { initialStudents } from './data/students';
 import StudentDirectory from './components/StudentDirectory';
 import StudentForm from './components/StudentForm';
@@ -9,13 +10,11 @@ export default function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('all'); // 'all' | 'deansLister' | 'probation'
 
-  // TODO 1: handleAddStudent(newStudent)
   function handleAddStudent(newStudent) {
     const studentWithId = { ...newStudent, id: Date.now() };
     setStudents([...students, studentWithId]);
   }
 
-  // TODO 2: visibleStudents (plain derived value, recalculated every render)
   let visibleStudents = students;
 
   if (searchTerm.trim() !== '') {
@@ -29,19 +28,18 @@ export default function App() {
   } else if (statusFilter === 'probation') {
     visibleStudents = visibleStudents.filter((student) => student.status === 'On Probation');
   }
-  // if statusFilter === 'all', no extra filtering needed
 
   return (
     <div>
       <h1>Student Directory</h1>
-      <StudentForm onAdd={handleAddStudent} /> {/* TODO 3 */}
+      <StudentForm onAdd={handleAddStudent} />
       <DirectoryControls
         searchTerm={searchTerm}
         onSearchChange={setSearchTerm}
         statusFilter={statusFilter}
         onStatusFilterChange={setStatusFilter}
       />
-      <StudentDirectory students={visibleStudents} /> {/* TODO 4 */}
+      <StudentDirectory students={visibleStudents} />
     </div>
   );
 }
