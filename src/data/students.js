@@ -1,4 +1,4 @@
-export const students = [
+export const initialStudents = [
   {
     id: 1,
     name: 'Alex Keith Vasquez',
@@ -9,7 +9,7 @@ export const students = [
   },
   {
     id: 2,
-    name: 'Sharmaine Pestano',
+    name: 'Jose Protacio Rizal',
     course: 'BSIT',
     yearLevel: 3,
     status: 'Irregular',
